@@ -2,6 +2,7 @@ import streamlit as st
 import subprocess
 import uuid
 from PIL import Image
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor as Pool
 from logs import logger
 
