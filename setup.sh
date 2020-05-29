@@ -2,12 +2,12 @@ mkdir -p ~/.streamlit/
 
 echo "\
 [general]\n\
-email = \"gaarv@users.noreply.github.com\"\n\
+email=\"gaarv@users.noreply.github.com\"\n\
 " > ~/.streamlit/credentials.toml
 
 echo "\
 [server]\n\
-headless = true\n\
+headless=true\n\
 enableCORS=false\n\
-port = $PORT\n\
+port=$PORT\n\
 " > ~/.streamlit/config.toml
