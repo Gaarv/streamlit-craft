@@ -19,7 +19,9 @@ jobs:
     - name: Build and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:push --recursive --context-path ./docker -a ${{ secrets.HEROKU_APP_NAME }} web
+      run: |
+        docker build -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web -f docker/Dockerfile .
+        docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
     
     - name: Release
       env:
