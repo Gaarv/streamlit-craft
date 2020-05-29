@@ -21,4 +21,4 @@ RUN git clone https://github.com/Gaarv/deep-text-recognition-benchmark.git
 
 EXPOSE 8501
 
-ENTRYPOINT ["./start.sh"]
+ENTRYPOINT ["bash", "start.sh"]
