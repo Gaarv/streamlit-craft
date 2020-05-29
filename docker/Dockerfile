@@ -1,10 +1,5 @@
 FROM python:3.7-slim
 
-ENV http_proxy http://172.16.99.9:3129
-ENV https_proxy http://172.16.99.9:3129
-ENV HTTP_PROXY=http://172.16.99.9:3129
-ENV HTTPS_PROXY=http://172.16.99.9:3129
-
 RUN apt-get update -yqq && \
     apt-get -yqq install binutils git libgtk2.0-dev
 
