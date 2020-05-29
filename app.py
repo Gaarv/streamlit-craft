@@ -54,7 +54,7 @@ def main():
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
 
-        unique_id = str(uuid.uuid4())
+        task_id = str(uuid.uuid4())
         input_folder = f"/app/data/{task_id}/input"
         output_folder = f"/app/data/{task_id}/output"
         predictions_file = f"{output_folder}/predictions.json"
@@ -62,7 +62,7 @@ def main():
         Path(input_folder).mkdir(parents=True, exist_ok=True)
         Path(output_folder).mkdir(parents=True, exist_ok=True)
 
-        image.save(input_folder)
+        image.save(f"{input_folder}/image.jpg", "JPEG")
         st.image(image, caption="Uploaded Image.", use_column_width=True)
         st.write("")
         st.write("Running detector...")
