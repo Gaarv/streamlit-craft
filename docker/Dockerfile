@@ -19,4 +19,6 @@ RUN git clone https://github.com/Gaarv/CRAFT-pytorch.git && \
 
 RUN git clone https://github.com/Gaarv/deep-text-recognition-benchmark.git
 
-CMD ["python3", "app.py"]
+EXPOSE 8501
+
+CMD ["streamlit", "run", "app.py"]
