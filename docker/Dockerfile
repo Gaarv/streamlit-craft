@@ -1,4 +1,4 @@
-o FROM python:3.7-slim
+FROM python:3.7-slim
 
 RUN apt-get update -yqq && \
     apt-get -yqq install binutils git libgtk2.0-dev
