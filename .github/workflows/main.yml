@@ -17,11 +17,9 @@ jobs:
       run: heroku container:login
    
     - name: Build and push
-      with:
-        dockerfile_path: docker
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web 
+      run: heroku container:push --recursive --context-path docker -a ${{ secrets.HEROKU_APP_NAME }} web
     
     - name: Release
       env:
