@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+o FROM python:3.7-slim
 
 RUN apt-get update -yqq && \
     apt-get -yqq install binutils git libgtk2.0-dev
@@ -21,4 +21,4 @@ RUN git clone https://github.com/Gaarv/deep-text-recognition-benchmark.git
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "app.py"]
+ENTRYPOINT ["./start.sh"]
