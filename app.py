@@ -70,7 +70,7 @@ def main():
         st.write("")
         st.write("Running detector...")
         run_detector(input_folder, output_folder)
-        cropped_images = [Image.open(im) for im in sorted(os.listdir(output_folder))]
+        cropped_images = [Image.open(f"{output_folder}/{im}") for im in sorted(os.listdir(output_folder))]
         st.image(cropped_images, use_column_width=True)
         st.write("Running predictor...")
         run_predictor(output_folder)
