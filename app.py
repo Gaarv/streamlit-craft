@@ -78,8 +78,11 @@ def main():
             with open(predictions_file) as f:
                 preds = json.loads(f.read())
             results = zip(preds["predicted"], preds["confidence"])
-            for i, cropped_image in enumerate(cropped_images):
-                st.image(cropped_image, caption=f"{result[i][0]} - {result[i][1]}", use_column_width=True)
+            for i, res in enumerate(results):
+                st.image(cropped_images[i], width=100)
+                st.write(f"Extracted text: {results[i][0]}")
+                st.write(f"Confidence: {results[i][1]}")
+                st.write("")
 
 
 if __name__ == "__main__":
