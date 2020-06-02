@@ -1,6 +1,8 @@
 import streamlit as st
 import subprocess
 import uuid
+import os
+import json
 from PIL import Image
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor as Pool
@@ -68,11 +70,16 @@ def main():
         st.write("")
         st.write("Running detector...")
         run_detector(input_folder, output_folder)
+        cropped_images = [Image.open(im) for im in sorted(os.listdir(output_folder))]
+        st.image(cropped_images, use_column_width=True)
         st.write("Running predictor...")
         run_predictor(output_folder)
         if Path(predictions_file).is_file():
             with open(predictions_file) as f:
-                st.write(f.read())
+                preds = json.loads(f.read())
+            results = zip(preds["predicted"], preds["confidence"])
+            for i, cropped_image in enumerate(cropped_images):
+                st.image(cropped_image, caption=f"{result[i][0]} - {result[i][1]}", use_column_width=True)
 
 
 if __name__ == "__main__":
