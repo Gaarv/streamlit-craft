@@ -71,13 +71,13 @@ def main():
         st.write("Running detector...")
         run_detector(input_folder, output_folder)
         cropped_images = [Image.open(f"{output_folder}/{im}") for im in sorted(os.listdir(output_folder))]
-        st.image(cropped_images, use_column_width=True)
+        st.image(cropped_images, width=100)
         st.write("Running predictor...")
         run_predictor(output_folder)
         if Path(predictions_file).is_file():
             with open(predictions_file) as f:
                 preds = json.loads(f.read())
-            results = zip(preds["predicted"], preds["confidence"])
+            results = list(zip(preds["predicted"], preds["confidence"]))
             for i, res in enumerate(results):
                 st.image(cropped_images[i], width=100)
                 st.write(f"Extracted text: {results[i][0]}")
