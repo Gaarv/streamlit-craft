@@ -2,6 +2,6 @@
 
 # Streamlit CRAFT
 
-Simple streamlit app using CRAFT for text detection / extraction
+Simple streamlit app using CRAFT for text detection / extraction.
 
 Based on https://github.com/clovaai/CRAFT-pytorch and https://github.com/clovaai/deep-text-recognition-benchmark
